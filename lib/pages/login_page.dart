@@ -1,6 +1,7 @@
 // pages/login_page.dart
 import 'package:flutter/material.dart';
-import '../services/auth_service.dart'; // 경로는 실제 위치에 맞게 조정하세요
+import '../services/auth_service.dart';
+import '../pages/main_page.dart'; // MainPage import
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -8,14 +9,12 @@ class LoginPage extends StatelessWidget {
   void _onGoogleLoginPressed(BuildContext context) async {
     final user = await AuthService().signInWithGoogle();
     if (user != null) {
-      // 로그인 성공 처리: 예시로 다음 페이지로 이동
       print('로그인 성공: ${user.displayName}');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('${user.displayName}님 환영합니다!')),
+      // 로그인 성공 시 MainPage로 이동
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MainPage()),
       );
-
-      // TODO: 실제 앱에서는 홈화면 등으로 이동
-      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const HomePage()));
     } else {
       // 로그인 실패 또는 취소
       ScaffoldMessenger.of(context).showSnackBar(
