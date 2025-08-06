@@ -9,6 +9,7 @@ import 'pages/settings_page.dart';
 import 'pages/favorite_items_page.dart';
 import 'pages/hidden_items_page.dart';
 import 'pages/year_page.dart';
+import 'pages/login_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const StartPage(),
+        '/login': (context) => const LoginPage(),
         '/main_page': (context) => const MainPage(),
         '/search': (context) => const SearchPage(),
         '/settings': (context) => const SettingsPage(),
