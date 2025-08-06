@@ -1,7 +1,7 @@
 //main.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-// Firebase import 추가
+import 'package:timezone/data/latest.dart' as tz;
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'pages/start_page.dart';
@@ -13,6 +13,7 @@ import 'pages/hidden_items_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  tz.initializeTimeZones();
 
   // dotenv 먼저 로드
   await dotenv.load(fileName: ".env");
