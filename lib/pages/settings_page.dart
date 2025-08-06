@@ -1,7 +1,7 @@
 // pages/settings_page.dart
 import 'package:flutter/material.dart';
-import 'hidden_items_page.dart'; // ← 동일 폴더 내
-import 'favorite_items_page.dart';
+import 'hidden_items_page.dart'; 
+import 'favorite_notices_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -22,8 +22,18 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> settingsItems = [
-      {'label': '년간 일정 보기'},
-      {'label': '월간 일정 보기'},
+      {
+        'label': '년간 일정 보기',
+        'onTap': () {
+          Navigator.pushNamed(context, '/year_page');
+        }        
+      },
+      {
+        'label': '월간 일정 보기',
+        'onTap': () {
+          Navigator.pushNamed(context, '/main_page');
+        }
+      },
       {
         'label': '숨기기 편집',
         'onTap': () {
@@ -31,21 +41,24 @@ class _SettingsPageState extends State<SettingsPage> {
             context,
             MaterialPageRoute(builder: (_) => const HiddenItemsPage()),
           );
-        },
+        }
       },
       {
         'label': '관심 공지 편집',
         'onTap': () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => const FavoriteItemsPage()),
+            MaterialPageRoute(builder: (_) => const FavoriteNoticesPage()),
           );
-        },
+        }
       },
       {'label': '푸시 알림'},
       {'label': '내 계정'},
       {'label': '한/영 버전'},
-      {'label': '브라이트/다크 모드', 'onTap': _toggleDarkMode},
+      {
+        'label': '브라이트/다크 모드',
+        'onTap': _toggleDarkMode,
+      },
     ];
 
     return Scaffold(
