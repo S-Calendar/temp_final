@@ -41,46 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBy6Q_S4Fm6zqlS6W94BXOu5sRIfoq5mOo',
-    appId: '1:239169882171:web:8c1c99875ebe9aa020f41e',
-    messagingSenderId: '239169882171',
-    projectId: 'scalendar-e368d',
-    authDomain: 'scalendar-e368d.firebaseapp.com',
-    storageBucket: 'scalendar-e368d.firebasestorage.app',
+    apiKey: 'AIzaSyAbXpFS2KyNcOUov-jS3bf-NrvU4OUqalk',
+    appId: '1:758863528096:web:b12c4f2322f5739ee749c5',
+    messagingSenderId: '758863528096',
+    projectId: 'scalendar-36991',
+    authDomain: 'scalendar-36991.firebaseapp.com',
+    storageBucket: 'scalendar-36991.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAm_EhVDc5bp1tUjK25qWFBBT5qCR6Pfd4',
-    appId: '1:239169882171:android:6cb06e007adf6e5020f41e',
-    messagingSenderId: '239169882171',
-    projectId: 'scalendar-e368d',
-    storageBucket: 'scalendar-e368d.firebasestorage.app',
+    apiKey: 'AIzaSyBda0trIfozvyc2toCO0R-YekAixlIiDB0',
+    appId: '1:758863528096:android:4d35d702ccf27581e749c5',
+    messagingSenderId: '758863528096',
+    projectId: 'scalendar-36991',
+    storageBucket: 'scalendar-36991.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyADQHBP5EVAw02pbzwN29uZj-YhrT_Wg6E',
-    appId: '1:239169882171:ios:bd1de517af665bc220f41e',
-    messagingSenderId: '239169882171',
-    projectId: 'scalendar-e368d',
-    storageBucket: 'scalendar-e368d.firebasestorage.app',
+    apiKey: 'AIzaSyB-cn0zdMysUg3mgcJoRJG-IaRm-Pg39eI',
+    appId: '1:758863528096:ios:61b3717f988beec0e749c5',
+    messagingSenderId: '758863528096',
+    projectId: 'scalendar-36991',
+    storageBucket: 'scalendar-36991.firebasestorage.app',
     iosBundleId: 'com.example.myUrlSummarizerApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyADQHBP5EVAw02pbzwN29uZj-YhrT_Wg6E',
-    appId: '1:239169882171:ios:bd1de517af665bc220f41e',
-    messagingSenderId: '239169882171',
-    projectId: 'scalendar-e368d',
-    storageBucket: 'scalendar-e368d.firebasestorage.app',
+    apiKey: 'AIzaSyB-cn0zdMysUg3mgcJoRJG-IaRm-Pg39eI',
+    appId: '1:758863528096:ios:61b3717f988beec0e749c5',
+    messagingSenderId: '758863528096',
+    projectId: 'scalendar-36991',
+    storageBucket: 'scalendar-36991.firebasestorage.app',
     iosBundleId: 'com.example.myUrlSummarizerApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBy6Q_S4Fm6zqlS6W94BXOu5sRIfoq5mOo',
-    appId: '1:239169882171:web:3d3206d44b8aca2320f41e',
-    messagingSenderId: '239169882171',
-    projectId: 'scalendar-e368d',
-    authDomain: 'scalendar-e368d.firebaseapp.com',
-    storageBucket: 'scalendar-e368d.firebasestorage.app',
+    apiKey: 'AIzaSyAbXpFS2KyNcOUov-jS3bf-NrvU4OUqalk',
+    appId: '1:758863528096:web:2988e0e67ad40395e749c5',
+    messagingSenderId: '758863528096',
+    projectId: 'scalendar-36991',
+    authDomain: 'scalendar-36991.firebaseapp.com',
+    storageBucket: 'scalendar-36991.firebasestorage.app',
   );
+
 }

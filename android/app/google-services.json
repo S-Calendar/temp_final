@@ -9,10 +9,23 @@
       "client_info": {
         "mobilesdk_app_id": "1:758863528096:android:4d35d702ccf27581e749c5",
         "android_client_info": {
-          "package_name": "com.example.ai"
+          "package_name": "com.example.AI"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "239169882171-81dr1uhurhjd8e4ium8c4bii216s8ivh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.AI",
+            "certificate_hash": "838e021fca5ab8c3fe3e9c886940db2a5d70fb08"
+          }
+        },
+        {
+          "client_id": "239169882171-ioq99retjlf2l1vkbe08lf790tdirpuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBda0trIfozvyc2toCO0R-YekAixlIiDB0"
@@ -20,7 +33,63 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239169882171-ioq99retjlf2l1vkbe08lf790tdirpuf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "239169882171-5miftukj7rdl1rrvr8kbdejupqr1aat9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myUrlSummarizerApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239169882171:android:6cb06e007adf6e5020f41e",
+        "android_client_info": {
+          "package_name": "com.example.ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239169882171-p2ako6qde9qvr9en3rh52b63uu654jis.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ai",
+            "certificate_hash": "838e021fca5ab8c3fe3e9c886940db2a5d70fb08"
+          }
+        },
+        {
+          "client_id": "239169882171-ioq99retjlf2l1vkbe08lf790tdirpuf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm_EhVDc5bp1tUjK25qWFBBT5qCR6Pfd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239169882171-ioq99retjlf2l1vkbe08lf790tdirpuf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "239169882171-5miftukj7rdl1rrvr8kbdejupqr1aat9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myUrlSummarizerApp"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:scalendar_app/models/notice.dart';
 import 'package:scalendar_app/services/gemini_service.dart';
 import 'package:scalendar_app/services/web_scraper_service.dart';
@@ -18,6 +20,8 @@ class SummaryPage extends StatefulWidget {
 class _SummaryPageState extends State<SummaryPage> {
   final WebScraperService _webScraperService = WebScraperService();
   final GeminiService _geminiService = GeminiService();
+  final FlutterLocalNotificationsPlugin _notificationsPlugin =
+      FlutterLocalNotificationsPlugin();
 
   bool _isLoading = true;
   Map<String, String>? _summaryResults;
@@ -27,9 +31,74 @@ class _SummaryPageState extends State<SummaryPage> {
   @override
   void initState() {
     super.initState();
+    _initializeNotification();
     _loadMemo();
     _summarizeFromInitialUrl();
-    _loadFavoriteStatus(); // Firestore에서 상태 로드
+    _loadFavoriteStatus();
+  }
+
+  Future<void> _initializeNotification() async {
+    const androidSettings = AndroidInitializationSettings(
+      '@mipmap/ic_launcher',
+    );
+    const initSettings = InitializationSettings(android: androidSettings);
+    await _notificationsPlugin.initialize(initSettings);
+  }
+
+  Future<void> _scheduleNotification(Notice notice) async {
+    final scheduledDate = DateTime(
+      notice.startDate.year,
+      notice.startDate.month,
+      notice.startDate.day - 1,
+      8,
+      0,
+      0,
+    );
+
+    final details = NotificationDetails(
+      android: AndroidNotificationDetails(
+        'notice_channel',
+        '공지 알림',
+        channelDescription: '신청 시작일 하루 전, 오전 8시에 알림이 예약되었습니다.',
+        importance: Importance.high,
+        priority: Priority.high,
+      ),
+    );
+
+    await _notificationsPlugin.zonedSchedule(
+      notice.hashCode,
+      '다가오는 공지',
+      notice.title,
+      tz.TZDateTime.from(
+        scheduledDate,
+        tz.local,
+      ), // 기존 DateTime → TZDateTime 변환
+      details, // 이미 만든 NotificationDetails 객체라면 그대로 사용
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      matchDateTimeComponents: DateTimeComponents.dateAndTime,
+    );
+  }
+
+  Future<void> _toggleNotificationForNotice() async {
+    if (widget.notice.isPush) {
+      // 알림 취소
+      await _notificationsPlugin.cancel(widget.notice.hashCode);
+      setState(() {
+        widget.notice.isPush = false;
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('알림이 취소되었습니다.')));
+    } else {
+      // 알림 예약
+      await _scheduleNotification(widget.notice);
+      setState(() {
+        widget.notice.isPush = true;
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('알림이 예약되었습니다.')));
+    }
   }
 
   Future<void> _loadMemo() async {
@@ -121,8 +190,6 @@ class _SummaryPageState extends State<SummaryPage> {
               controller: controller,
               maxLines: 3,
               autofocus: true,
-              keyboardType: TextInputType.text,
-              textInputAction: TextInputAction.done,
               decoration: const InputDecoration(hintText: '메모를 입력하세요'),
             ),
             actions: [
@@ -193,6 +260,15 @@ class _SummaryPageState extends State<SummaryPage> {
               color: Colors.amber,
             ),
             onPressed: _toggleFavorite,
+          ),
+          IconButton(
+            icon: Icon(
+              widget.notice.isPush
+                  ? Icons.notifications_active
+                  : Icons.notifications_none,
+              color: widget.notice.isPush ? Colors.blue : null,
+            ),
+            onPressed: _toggleNotificationForNotice,
           ),
         ],
       ),

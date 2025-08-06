@@ -31,3 +31,5 @@ subprojects {
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
+#추가(로그인 구현)
+apply plugin: 'com.google.gms.google-services'
