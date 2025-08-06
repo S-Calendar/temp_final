@@ -14,6 +14,7 @@ class Notice {
   bool isFavorite;
   bool isHidden;
   String? memo;
+  bool isPush;
 
   Notice({
     required this.title,
@@ -26,6 +27,7 @@ class Notice {
     this.isFavorite = false,
     this.isHidden = false,
     this.memo,
+    this.isPush = false,
   });
 
   // 신청기간 길이 (띠 우선순위 판단용)
@@ -54,6 +56,7 @@ class Notice {
       isFavorite: json['isFavorite'] ?? false,
       isHidden: json['isHidden'] ?? false,
       memo: json['memo'],
+      isPush: json['isPush'] ?? false,
     );
   }
 
@@ -69,6 +72,7 @@ class Notice {
       'isFavorite': isFavorite,
       'isHidden': isHidden,
       'memo': memo,
+      'isPush': isPush,
     };
   }
 
