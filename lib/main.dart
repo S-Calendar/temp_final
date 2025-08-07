@@ -2,8 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; //추
-//import 'pages/start_page.dart';
+import 'firebase_options.dart'; 
 import 'pages/main_page.dart';
 import 'pages/search_page.dart';
 import 'pages/settings_page.dart';
@@ -11,14 +10,20 @@ import 'pages/favorite_items_page.dart';
 import 'pages/hidden_items_page.dart';
 import 'pages/year_page.dart';
 import 'pages/login_page.dart';
+import 'package:timezone/data/latest.dart' as tz;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
-  //Firebase 초기화
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  tz.initializeTimeZones();
+  // Firebase 초기화 중복 방지 및 예외 처리
+  try {
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    }
+  } catch (e) {
+    print('Firebase already initialized: $e');
+  }
   runApp(const MyApp());
 }
 
