@@ -112,8 +112,9 @@ class _FavoriteItemsPageState extends State<FavoriteItemsPage> {
                                 }
                                 setState(() {
                                   notice.isFavorite = !notice.isFavorite;
-                                  if (!notice.isFavorite)
+                                  if (!notice.isFavorite) {
                                     favoriteItems.remove(notice);
+                                  }
                                 });
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
