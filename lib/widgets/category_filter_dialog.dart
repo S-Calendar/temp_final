@@ -6,10 +6,10 @@ class CategoryFilterDialog extends StatefulWidget {
   final Function(List<String>) onApply;
 
   const CategoryFilterDialog({
-    Key? key,
+    super.key,
     required this.selectedCategories,
     required this.onApply,
-  }) : super(key: key);
+  });
 
   @override
   State<CategoryFilterDialog> createState() => _CategoryFilterDialogState();
