@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'hidden_items_page.dart';
 import 'favorite_items_page.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'push_page.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -19,6 +21,21 @@ class _SettingsPageState extends State<SettingsPage> {
     });
   }
 
+  final FlutterLocalNotificationsPlugin _notificationsPlugin =
+      FlutterLocalNotificationsPlugin();
+
+  @override
+  void initState() {
+    super.initState();
+    _initNotifications();
+  }
+
+  Future<void> _initNotifications() async {
+    const android = AndroidInitializationSettings('@mipmap/ic_launcher');
+    const init = InitializationSettings(android: android);
+    await _notificationsPlugin.initialize(init);
+  }
+  
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> settingsItems = [
@@ -52,7 +69,17 @@ class _SettingsPageState extends State<SettingsPage> {
           );
         },
       },
-      {'label': '푸시 알림'},
+      {
+        'label': '푸시 알림 편집',
+        'onTap': () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => PushPage(notifications: _notificationsPlugin),
+            ),
+          );
+        },
+      },
       {'label': '내 계정'},
       {'label': '한/영 버전'},
       {'label': '브라이트/다크 모드', 'onTap': _toggleDarkMode},
