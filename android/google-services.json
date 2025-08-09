@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "758863528096",
+    "project_id": "scalendar-36991",
+    "storage_bucket": "scalendar-36991.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758863528096:android:4d35d702ccf27581e749c5",
+        "android_client_info": {
+          "package_name": "com.example.ai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758863528096-mhmjo3lgc1rrvadaaud0hi6hqvqn3sml.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ai",
+            "certificate_hash": "8550841f9e00d62c463e4370c0ed2eaa47c5bf3a"
+          }
+        },
+        {
+          "client_id": "758863528096-0136klsq4us8qff831rg1pi202espupp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBda0trIfozvyc2toCO0R-YekAixlIiDB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758863528096-0136klsq4us8qff831rg1pi202espupp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "758863528096-i2tj6vbdmtgftjglu2h8luvmvt780hds.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myUrlSummarizerApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
